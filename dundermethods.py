@@ -1,28 +1,17 @@
-class Rat:
+class Person:
 
-    def __init__(self,name):
-        self.name = name
-            
-    def __setattr__(self, name, value):
-        print(f'{name} set to {value}')
-        self.__dict__[name] = value
+    def __init__(self,fname,lname,age,incomePerAnum):
+        self.fname = fname
+        self.lname = lname
+        self.age = age
+        self.incomePerAnum = incomePerAnum
     
+    def __eq__(self,other):
+        return "Same Family" if self.lname == other.lname else False
     
+p1 = Person("John", "Davis", 24, 100000)
+p2 = Person("Bob", "Davis", 36, 120000)
 
-rat = Rat('Mike')
+print(p1 == p2)
 
-print(rat.__dict__)
-
-for i in rat.__dict__:
-    print(rat.__dict__[i])
-
-nums = [1,2,3,4,5,6,7,8,9]
-b = map(lambda x : x + x ** x, nums)
-print(list(b))
-
-def filterxnums(x):
-    return True if x < 3 else False
-
-xnums = filter(lambda x: x < 3  ,nums)
-znums = filter(filterxnums,nums)
-print(list(xnums),list(znums))
+print(p2.__dict__['fname'])
