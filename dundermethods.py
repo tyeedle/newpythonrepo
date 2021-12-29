@@ -1,17 +1,40 @@
-class Person:
+import json
 
-    def __init__(self,fname,lname,age,incomePerAnum):
-        self.fname = fname
-        self.lname = lname
+
+class Person:
+    objects_dict = {}
+    objects_created = 0
+    def __init__(self,name,age,incomePerAnum):
+        Person.objects_created += 1
+
+        self.name = name
+        
         self.age = age
         self.incomePerAnum = incomePerAnum
+
+        Person.objects_dict[self.name] = {"incomePerYear" : incomePerAnum , "age"  : age}
+
     
+
     def __eq__(self,other):
-        return "Same Family" if self.lname == other.lname else False
+        return False
     
-p1 = Person("John", "Davis", 24, 100000)
-p2 = Person("Bob", "Davis", 36, 120000)
+    def __repr__(self):
+        return "Person Object"
+    
 
-print(p1 == p2)
 
-print(p2.__dict__['fname'])
+p1 = Person("John", 24, 100000)
+p2 = Person("Bob", 36, 120000)
+p3 = Person("Alice",40,145000)
+
+
+with open("dunderjsonfile.json",'w') as f:
+    json.dump(Person.objects_dict,f)
+
+def loaded():
+    with open("dunderjsonfile.json",'r') as f:
+        loaded = json.load(f)
+    return loaded
+
+print(json.dumps(Person.objects_dict,indent=4))
