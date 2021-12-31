@@ -12,7 +12,7 @@ def loadingBar(length : int,symbol : str,delay : int):
         time.sleep(delay)
         os.system('clear')
 
-loadingBar(100, "=", 0.1)
+loadingBar(100, "=", 0.05)
 
 def loadingBarV2(length : int ,symbol : str ,delay : int):
     bar = []
@@ -29,6 +29,4 @@ def loadingBarV2(length : int ,symbol : str ,delay : int):
         time.sleep(delay)
         os.system('clear')
 
-loadingBarV2(100, "=", 0.1)
-
-
+loadingBarV2(100, "=", 0.05)

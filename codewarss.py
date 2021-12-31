@@ -24,4 +24,25 @@ def to_cc(s):
     
     return "".join(s)
 
-print(to_cc("hello_guys"))
+def duplicate_encoder(word):
+
+    return "".join(["(" if word.lower().count(i) < 2 else ")" for i in word.lower() ])
+
+
+def to_cc2(text):
+    text = text.replace("_","-").split("-")
+    return "".join(text[0] + i.title() for i in text[1::])
+
+
+def make_readable(seconds):
+    m,s = divmod(seconds,60)
+    h,m = divmod(m, 60)
+
+    return f'{h:02d}:{m:02d}:{s:02d}'
+
+
+def zero_two_d(num1,num2):
+
+    return f'{num1:02d}:{num2:02d}'
+
+print(zero_two_d(0,0))

@@ -8,8 +8,8 @@ class User:
             self.accRead = json.load(f)
 
         
-        mode = input('MODE : [LOGIN] - [REGISTER] \n >>> ').upper()
-        if mode == "REGISTER":
+        mode = input('MODE : [LOG]IN - [REG]ISTER \n >>> ').upper()
+        if mode == "REG":
             try: 
                 username = input("username \n >>> ")
                 password = input("password \n >>> ")
@@ -24,7 +24,7 @@ class User:
         
             except :
                 print('Exception Error')
-        if mode == "LOGIN":
+        if mode == "LOG":
             id_ = input("ENTER [ID] \n >>> ")
             
             for k,v in self.accRead['Usernames'].items():
